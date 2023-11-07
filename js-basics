@@ -1,7 +1,71 @@
+//js is dynamic, automatically considers what to assigns
+
 const a = 1
 var b = 2  /* block scoped */
 let c = 3  /* braces/fxn scoped */
 
 let d   //undefined value, if not initialised
 
+//null -> empty value
+//undefined -> no value is assigned
+
 console.table([a, b, c, d])
+console.log(typeof null); // -> object type
+console.log(typeof undefined); // -> undefined
+
+//--------------------------------------------------
+//Conversions
+
+// "22" -> 22
+// "22asdf" -> NaN -> typeof mein prints number 
+
+// ---------------------------------------------
+
+// Data types
+
+// primitive -> value is passed and changes are made in new copy
+// String, Number, Boolean, null, undefined, BigInt, symbol;
+
+
+//Non-primitive or Reference -> direct reference is passed
+// Objects, arrays, fxns
+//return an object
+
+// stack -> primitive
+// heap -> non primitive
+
+//eg:
+
+let userOne = {
+    name: "user",
+    email: "test@user.com"
+}
+
+let userTwo = userOne;
+userTwo.email = "test@username.com"; // it changes values in both objects, as same memory is being referenced
+
+// ------------------------------------------------------
+// Strings
+
+let name = "Anurag";
+let str = `My name is ${name}`; //modern way of defining strings
+console.log(str);
+
+let subName = name.substring(0,2); // dosen't takes -ve values
+//string is an object
+
+// name.slice(-8,0) --> takes -ve value as well
+//name.trim() -> removes white spaces
+//name.replace(oldVal, newVal) -> replaces oldVal with newVal
+
+//name.includes("anu") --> gives true/false
+//name.split(deliminator) --> splits based on deliminators
+
+let min = 10;
+let max = 20;
+//console.log(Math.floor(Math.random() * (max-min+1)) + min)
+
+
+
+
+
