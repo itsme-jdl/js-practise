@@ -1,10 +1,10 @@
-//js is dynamic, automatically considers what to assigns
+//js is dynamic, automatically considers what to assigns and is single threaded
 
-const a = 1
-var b = 2  /* block scoped */
-let c = 3  /* braces/fxn scoped */
+// const a = 1
+// var b = 2  /* block scoped */
+// let c = 3  /* braces/fxn scoped */
 
-let d   //undefined value, if not initialised
+// let d   //undefined value, if not initialised
 
 //null -> empty value
 //undefined -> no value is assigned
@@ -13,15 +13,15 @@ let d   //undefined value, if not initialised
 // console.log(typeof null); // -> object type
 // console.log(typeof undefined); // -> undefined
 
-//--------------------------------------------------
-//Conversions
+
+//-----------------------Conversions----------------
 
 // "22" -> 22
 // "22asdf" -> NaN -> typeof mein prints number 
 
-// ---------------------------------------------
 
-// Data types
+
+//----------------- Data types ----------------
 
 // primitive -> value is passed and changes are made in new copy
 // String, Number, Boolean, null, undefined, BigInt, symbol;
@@ -36,22 +36,21 @@ let d   //undefined value, if not initialised
 
 //eg:
 
-let userOne = {
-    name: "user",
-    email: "test@user.com"
-}
+// let userOne = {
+//     name: "user",
+//     email: "test@user.com"
+// }
 
-let userTwo = userOne;
-userTwo.email = "test@username.com"; // it changes values in both objects, as same memory is being referenced
+// let userTwo = userOne;
+// userTwo.email = "test@username.com"; // it changes values in both objects, as same memory is being referenced
 
-// ------------------------------------------------------
-// Strings
+//-------------------- Strings ------------------------
 
-let name = "Anurag";
-let str = `My name is ${name}`; //modern way of defining strings
+// let name = "Anurag";
+// let str = `My name is ${name}`; //modern way of defining strings
 // console.log(str);
 
-let subName = name.substring(0,2); // dosen't takes -ve values
+// let subName = name.substring(0,2); // dosen't takes -ve values
 //string is an object
 
 // name.slice(-8,0) --> takes -ve value as well
@@ -61,38 +60,34 @@ let subName = name.substring(0,2); // dosen't takes -ve values
 //name.includes("anu") --> gives true/false
 //name.split(deliminator) --> splits based on deliminators
 
-let min = 10;
-let max = 20;
+// let min = 10;
+// let max = 20;
 //console.log(Math.floor(Math.random() * (max-min+1)) + min)
 
-//--------------------------------------------------------
-
-//Dates
+//-------------------------Dates --------------------------------
 
 // date are objects
 // console.log(Math.floor(Date.now()/1000)) // --> gives current time in seconds
 
-let newDate = new Date();
-newDate.toLocaleString('default', {
-    weekday: "long"
-})
+// let newDate = new Date();
+// newDate.toLocaleString('default', {
+//     weekday: "long"
+// })
 
 
-// ---------------------------------------------------------------------
-
-// Arrays
+//---------------------------- Arrays--------------------------------------
 
 // copy created is shallow copy, i.e. same memory is being referenced
 
-let arr = [1,2,3,4,5,6,7]
-console.log("A", arr);
+// let arr = [1,2,3,4,5,6,7]
+// console.log("A", arr);
 
-let newArr = arr.slice(1,3)
-console.log(newArr);
-console.log("B", arr);
+// let newArr = arr.slice(1,3)
+// console.log(newArr);
+// console.log("B", arr);
 
 
-let newSpliceArr = arr.splice(1,3)
+// let newSpliceArr = arr.splice(1,3)
 // console.log(newSpliceArr);
 // console.log("C", arr);
 
@@ -100,44 +95,83 @@ let newSpliceArr = arr.splice(1,3)
 //splice modifies (removes the range mentioned from) the orignal array, but slice dosen't
 
 
-let newArrFinal = [...newArr, ...newSpliceArr] //-> used to concat two or more arrays
+// let newArrFinal = [...newArr, ...newSpliceArr] //-> used to concat two or more arrays
 
 // console.log(Array.isArray("Anurag"));
 // console.log(Array.from("Anurag"));
 // console.log(Array.from({name: "Anurag"})); --? return empty array, as unable to create an array out of it
 
-let score1 = 100
-let score2 = 200
+// let score1 = 100
+// let score2 = 200
 
 // console.log(Array.of(score1, score2));
 
-// -----------------------------------------------------------
-
-// Objects
+//------------------- Objects-----------------------------------------
 
 // constructors always creates singleton objects
 // Object.create()
 
-const mySym = Symbol("key1"); 
+// const mySym = Symbol("key1"); 
 
-let myObj = {
-    name: "Anurag",
-    "full-name": "Anurag Tiwari", 
-    age: 18,
-    email:"anu@test.com",
-    [mySym]: "mykey"
-}
+// let myObj = {
+//     name: "Anurag",
+//     "full-name": "Anurag Tiwari", 
+//     age: 18,
+//     email:"anu@test.com",
+//     [mySym]: "mykey"
+// }
 
 // console.log(myObj.age)
 // console.log(myObj["age"]) both are same, as js treats key as strings
 // console.log(myObj["full-name"])
 // console.log(myObj[mySym]) --> syntax for accessing symbols
 
-Object.freeze(myObj) //--> treats the objects as const, so no change is psible, also no error
+// Object.freeze(myObj) //--> treats the objects as const, so no change is psible, also no error
+
+// const obj3 = {...obj1, ...obj2};
+// Object.keys(obj1)  OR  Object.values(obj2) --> gives all the keys/values of the specified Object, as an array
+
+//Destructuring
+
+//  const myObj1 = {
+//     name: "Anurag",
+//     age: 18,
+//     email: "abc@gmail.com"
+//  }
+// const {name: Fname} = myObj1; --> extracts name from myObj1 and stores in Fname.
 
 
+//----------------------------- Functions ------------------------------------------
+
+// function test(user){
+//     return `${user} just logged in`
+// }
+// console.log(test()); //-> since no i/p was given, so gives undefined as output
 
 
+function calculatePrice(val1, val2, ...num1){ // ...num1 -> rest operation, accepts all the left over values.
+    return num1;
+}
+console.log(calculatePrice(100, 200, 300, 400));
+
+//browser mein this ki value -> global object, i.e windows
+//node me this ki value -> empty object
+//fxn ke andr this -> undefined
+
+//--------------- IIFE (Immediately Invoked Fxn Expression)------------------------
+//Used for handling pollutions of global scoped items 
+
+// (Fxn defination)(For fxn execution);  ()();--> semicolon for ending 
+
+// eg:
+// (function connection(){
+    // console.log(`DB Connected`);
+// })()
+
+//false, 0, -0, bigint 0n, null, undefined, NaN --> falsy
+
+//----------- Nullish Coalescing Operator ---------------------------------
+//val1 = null ?? 10 ?? 20 --> whatever value is recieved first will be assigned, here 10
 
 
 
