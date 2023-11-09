@@ -298,4 +298,6 @@
 
 // let myArr = Array.from(myH1) --> Converts Nodelist -> Array
 
+// ---------------- DOM Manipulation -------------------
+
 
