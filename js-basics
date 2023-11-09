@@ -141,7 +141,7 @@
 // const {name: Fname} = myObj1; --> extracts name from myObj1 and stores in Fname.
 
 
-//----------------------------- Functions ------------------------------------------
+//-----------------------------Functions---------------------------------
 
 // function test(user){
 //     return `${user} just logged in`
@@ -149,10 +149,10 @@
 // console.log(test()); //-> since no i/p was given, so gives undefined as output
 
 
-function calculatePrice(val1, val2, ...num1){ // ...num1 -> rest operation, accepts all the left over values.
-    return num1;
-}
-console.log(calculatePrice(100, 200, 300, 400));
+// function calculatePrice(val1, val2, ...num1){ // ...num1 -> rest operation, accepts all the left over values.
+//     return num1;
+// }
+// console.log(calculatePrice(100, 200, 300, 400));
 
 //browser mein this ki value -> global object, i.e windows
 //node me this ki value -> empty object
@@ -174,5 +174,128 @@ console.log(calculatePrice(100, 200, 300, 400));
 //val1 = null ?? 10 ?? 20 --> whatever value is recieved first will be assigned, here 10
 
 
+// ------------------ for of loops --------------------------
+
+//mostly used to iterate in arrays
+//for (const i of arr){
+    // console.log(i) --> directly gives the values inside arr
+// }
+
+// it can also iterate over map: , but not over objects
+
+// for(const [key, val] of myMap){
+    // console.log(key, ": ", val);
+// }
+
+// --------------------- for in loop -----------------------------
+
+//can iterate over objects: but not over maps
+
+// for(const key in myObj){
+    // console.log(`${key} : ${myObj[key]}`);
+// }
+
+// for(const i in arr){
+    // console.log(arr[i]); --> here same like in for loops
+// }
+
+// ---------------------- for each loop --------------------------
+
+// const arr = ["js", "python", "cpp", "java", "ruby"]
+
+// arr.forEach( (item)=>{
+//     console.log(item);
+// } );
+
+// accessing objects inside arrays: [{}, {}, {}]
+
+// const myObject = [
+//     {
+//         name: "Anurag",
+//         age: 18
+//     },
+//     {
+//         name: "Anand",
+//         age: 17
+//     },
+//     {
+//         name: "Arun",
+//         age: 20
+//     }
+// ]
+
+// myObject.forEach( (item) =>{
+//     console.log(`${item.name} is ${item.age} years old`)
+// } )
+
+// --------------- filters ---------------------------
+// working is same as forEach loops, just supports return 
+// const myNums = [1, 2, 3 ,4, 5, 6, 7, 8, 9, 10]
+
+// const retVal = myNums.filter( (num)=>(num > 4) )
+
+// const retVal = myNums.filter( (num)=>{
+//     return (num > 4)} ) -->  need to use return explicitly
+// console.log(retVal)
+
+// filters allows to pass only those values which satisfies the conditions
+
+// -------------------- Maps -------------------------------------------
+
+// const myNums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// const retVal = myNums.map((num) => num * 12)
+// const retVal = myNums
+                        // .map((num)=> num*12)
+                        // .map((num)=> num/5)
+                        // .filter((num) => (num>10));
+
+// Every chained method will get the value passed from its previous method
+
+// --------------------------- Reduce -----------------------------------
+
+// const myNums = [1, 2, 3]
+// const initialVal = 0
+
+// const myTot = myNums.reduce( (acc, curr) => {
+    // `Val of acc is: ${acc}, and val of curr is: ${curr}`
+    // return (acc * curr)}, initialVal);
+
+// initially, accumulator accepts the initial val specified, but afterwards, it accepts the further values which gets calculated.
+
+// const shopCart = [
+// {
+//     course: "Cyber Security", 
+//     price: 1000
+// },
+// {
+//     course: "Data Science", 
+//     price: 900
+// },
+// {
+//     course: "Full Stack Development", 
+//     price: 800
+// }]
+
+// const priceToPay = shopCart.reduce( (acc, item) => (acc + item.price), 0)
+// console.log(priceToPay);
+
+// -------------------- DOM ----------------------------------
+
+//let titile = document.getElementById('id_name')
+// title.innerHtml() --> gives the inner Html tags along with value 
+// title.innerText() --> gives the visible text 
+// title.textContent --> gives the entire text (visible + invisible)
+
+// document.querySelector('ul') --> gives the first matching ul
+// document.querySelectorAll('ul') --> gives all the ul in the page in the form of Nodelist
+
+// Nodelist are similar to array, but not exactly like array, as they dosen't have the map property but has forEach loop
+
+// eg: 
+// let myH1 = document.querySelectorAll('h1')
+//  myH1[0].style.color = 'green' --> this is correct syntax.
+
+// let myArr = Array.from(myH1) --> Converts Nodelist -> Array
 
 
