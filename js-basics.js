@@ -298,6 +298,65 @@
 
 // let myArr = Array.from(myH1) --> Converts Nodelist -> Array
 
-// ---------------- DOM Manipulation -------------------
+// ---------------- Events -------------------
+
+/* document.getElementById('id_name').onclick = ()=>{} --> gives less features.
+
+Use eventListener instead:
+
+document.getElementById('id_name').addEventListener('click', (events)=>{ alert('Clicked')}, false)
+
+Third parameter used above is for eventPropogation, by default false.
+
+event Propogation (false)--> bubling of events, means whenever we listen to any event on the web page, it bubbles up, i.e. first the child element invokes, then the upper parents invokes.
+*/
+// eg:
+{/* <ul id='ul'>
+    <li id='one'>One</li>
+    <li id='two'>Two</li>
+    <li id='three'>Three</li>
+</ul> */}
+
+// document.getElementById('ul').addEventListener('click', (events)=>{ alert(`Clicked ul `)}, false)
+
+// document.getElementById('two').addEventListener('click', (events)=>{ alert(`Clicked id `)}, false)
+
+/*
+Here, if we will click on Two, then first it will print Clicked id and then in the next line, it will show Clicked ul. Goes from bottom to top.
+
+But, if we will set eventPropogation as true (it is in catching mode), it will show just opposite, from top to bottom.
+
+use e.stopPropogation() --> to prevent these
+*/
 
 
+
+// Read about events:
+
+// type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget, clientX, clientY, screenX, screenY, other position related events, keyCodes
+
+// --------------------- Async Code ----------------------
+
+// Memory -> Call Stack -> Web Api/Node Api -> Task Queue -> Waits to clear the call stack -> Gets Loaded into call stack & executes -> 
+
+// Promises -> own task queue -> higher priority than noramal async fxns like setTimeOut() 
+
+
+/* ---------------------- setTimeout() & clearTimeout()--------------------
+
+const changeText = function(){
+    document.querySelector('h1').innerHtml = "Learning JS";
+}
+const changeMe = setTimeout(changeText, 5000);
+
+const fxn = ()=> {
+    clearTimeout(changeMe)
+}
+
+document.querySelector('#id').addEventListener('click', fxn, 2000) --> applied on a button so that one can stop execution of setTimeout within given time interval
+
+
+
+
+
+*/
