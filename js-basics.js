@@ -29,7 +29,7 @@
 
 //Non-primitive or Reference -> direct reference is passed
 // Objects, arrays, fxns
-//return an object
+//returns an object
 
 // stack -> primitive
 // heap -> non primitive
@@ -42,7 +42,8 @@
 // }
 
 // let userTwo = userOne;
-// userTwo.email = "test@username.com"; // it changes values in both objects, as same memory is being referenced
+// userTwo.email = "test@username.com"; 
+// it changes values in both objects, as same memory is being referenced
 
 //-------------------- Strings ------------------------
 
@@ -50,7 +51,7 @@
 // let str = `My name is ${name}`; //modern way of defining strings
 // console.log(str);
 
-// let subName = name.substring(0,2); // dosen't takes -ve values
+// let subName = name.substring(0,2); -> dosen't takes -ve values
 //string is an object
 
 // name.slice(-8,0) --> takes -ve value as well
@@ -60,6 +61,7 @@
 //name.includes("anu") --> gives true/false
 //name.split(deliminator) --> splits based on deliminators
 
+//Random value btw any range:
 // let min = 10;
 // let max = 20;
 //console.log(Math.floor(Math.random() * (max-min+1)) + min)
@@ -95,11 +97,11 @@
 //splice modifies (removes the range mentioned from) the orignal array, but slice dosen't
 
 
-// let newArrFinal = [...newArr, ...newSpliceArr] //-> used to concat two or more arrays
+// let newArrFinal = [...newArr, ...newSpliceArr] --> used to concat two or more arrays
 
 // console.log(Array.isArray("Anurag"));
 // console.log(Array.from("Anurag"));
-// console.log(Array.from({name: "Anurag"})); --? return empty array, as unable to create an array out of it
+// console.log(Array.from({name: "Anurag"})); --> return empty array, as unable to create an array out of object
 
 // let score1 = 100
 // let score2 = 200
@@ -126,7 +128,7 @@
 // console.log(myObj["full-name"])
 // console.log(myObj[mySym]) --> syntax for accessing symbols
 
-// Object.freeze(myObj) //--> treats the objects as const, so no change is psible, also no error
+// Object.freeze(myObj) --> treats the objects as const, so no change is psible, also no error will given if anyone tries to change anything.
 
 // const obj3 = {...obj1, ...obj2};
 // Object.keys(obj1)  OR  Object.values(obj2) --> gives all the keys/values of the specified Object, as an array
@@ -146,10 +148,11 @@
 // function test(user){
 //     return `${user} just logged in`
 // }
-// console.log(test()); //-> since no i/p was given, so gives undefined as output
+// console.log(test()); --> since no i/p was given, so gives undefined as output
 
 
-// function calculatePrice(val1, val2, ...num1){ // ...num1 -> rest operation, accepts all the left over values.
+// function calculatePrice(val1, val2, ...num1){ 
+    //  ...num1 --> rest operation, accepts all the left over values.
 //     return num1;
 // }
 // console.log(calculatePrice(100, 200, 300, 400));
@@ -309,22 +312,23 @@ document.getElementById('id_name').addEventListener('click', (events)=>{ alert('
 Third parameter used above is for eventPropogation, by default false.
 
 event Propogation (false)--> bubling of events, means whenever we listen to any event on the web page, it bubbles up, i.e. first the child element invokes, then the upper parents invokes.
+Just like recursion, it will execute while returning back from the function.
 */
 // eg:
-{/* <ul id='ul'>
+/*{ <ul id='ul'>
     <li id='one'>One</li>
     <li id='two'>Two</li>
     <li id='three'>Three</li>
-</ul> */}
+</ul> }*/
 
 // document.getElementById('ul').addEventListener('click', (events)=>{ alert(`Clicked ul `)}, false)
 
 // document.getElementById('two').addEventListener('click', (events)=>{ alert(`Clicked id `)}, false)
 
 /*
-Here, if we will click on Two, then first it will print Clicked id and then in the next line, it will show Clicked ul. Goes from bottom to top.
+Here, if we will click on Two, then firstly, it will print Clicked id and then in the next line, it will show Clicked ul. --> Goes from bottom to top.
 
-But, if we will set eventPropogation as true (it is in catching mode), it will show just opposite, from top to bottom.
+But, if we will set eventPropogation as true (it is in catching mode), it will show just opposite,--> from top to bottom.
 
 use e.stopPropogation() --> to prevent these
 */
@@ -337,9 +341,10 @@ use e.stopPropogation() --> to prevent these
 
 // --------------------- Async Code ----------------------
 
-// Memory -> Call Stack -> Web Api/Node Api -> Task Queue -> Waits to clear the call stack -> Gets Loaded into call stack & executes -> 
+// Memory -> Call Stack -> Web Api/Node Api -> Task Queue -> Waits to clear the call stack -> Gets Loaded into call stack & executes  
 
-// Promises -> own task queue -> higher priority than noramal async fxns like setTimeOut() 
+// Promises -> own task queue -> higher priority than noramal async fxns like setTimeOut()
+// Used for parallel executions of the codes. 
 
 
 /* ---------------------- setTimeout() & clearTimeout()--------------------
@@ -354,9 +359,5 @@ const fxn = ()=> {
 }
 
 document.querySelector('#id').addEventListener('click', fxn, 2000) --> applied on a button so that one can stop execution of setTimeout within given time interval
-
-
-
-
 
 */
