@@ -361,3 +361,35 @@ const fxn = ()=> {
 document.querySelector('#id').addEventListener('click', fxn, 2000) --> applied on a button so that one can stop execution of setTimeout within given time interval
 
 */
+
+// ----------------- Call ----------------------
+// Used to pass the current execution context to other function.
+// It holds the reference of the current execution context, so that, if the current execution is removed from the memory, then also it can be referenced for further use.
+
+
+// ----------------------- Closures & Lexical Scoping----------------------
+/*
+ Lexical Scoping: inner fxn (declared inside a fxn) can easily access the data members of the outer fxns, but outer directly can't access.
+
+ Closures: the inner fxn is returned from outer fxn, due to which, the entire lexical scope of the fxn (not only the current execution context) is returned along with it.
+
+ This allows the parent/outer fxn to access the data members of the inner fxn after the execution context of inner is removed from the stack. As the reference is still there due to returning of lexical scope.
+
+    eg: let suppose we have two buttons, one to set backgrnd color as green and other as orange.
+
+    function clickHandler(color){
+
+        return function(){
+            document.body.style.backgroundColor(`${color}`)
+        }
+    }
+
+    document.getElementById('orange').onclick = clickHandler("orange");
+    document.getElementById('green').onclick = clickHandler("green");
+
+    Here, on calling the clickHandler, it returns a fxn, which eventually returns the entire lexical scope through which it have the access to the color argument coming to the outer fxn. This is possible due to closure.
+
+
+
+
+*/
